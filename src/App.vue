@@ -1,55 +1,29 @@
 <script setup lang="ts">
 import { useDark } from '@vueuse/core'
 import AppSidebar from "@/components/AppSidebar.vue"
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
-import { Separator } from "@/components/ui/separator"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+import SiteHeader from "@/components/SiteHeader.vue"
+import SiteFooter from "@/components/SiteFooter.vue"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 const isDark = useDark()
 </script>
 
 <template>
+  <!-- :theme 处理整个 Sidebar 的深浅色状态 -->
   <SidebarProvider :theme="isDark ? 'dark' : 'light'">
     <AppSidebar />
-    <SidebarInset>
-      <header class="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-         
-        <div class="flex items-center gap-2 px-4">
-          <SidebarTrigger class="-ml-1" />
-          <Separator
-            orientation="vertical"
-            class="mr-1 data-[orientation=vertical]:h-4"
-          />
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem class="hidden md:block">
-                <BreadcrumbLink href="#">
-                  Building Your Application
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator class="hidden md:block" />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
+    
+    <SidebarInset class="flex flex-col min-h-screen">
+      <!-- 使用抽离后的 Header -->
+      <SiteHeader />
 
-      </header>
+      <!-- 主内容区：使用 flex-1 撑开空间，确保 footer 压到底部 -->
+      <main class="flex-1">
+        <router-view />
+      </main>
+      
+      <!-- 使用抽离后的 Footer -->
+      <SiteFooter />
     </SidebarInset>
   </SidebarProvider>
 </template>
-
-<style scoped>
-</style>
