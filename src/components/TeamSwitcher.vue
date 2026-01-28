@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Component } from "vue"
+import { useRouter } from 'vue-router'
 
 import { ChevronsUpDown, House } from "lucide-vue-next"
 import { ref } from "vue"
@@ -11,6 +12,8 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
+const router = useRouter()
+
 const props = defineProps<{
   teams: {
     name: string
@@ -19,6 +22,10 @@ const props = defineProps<{
   }[]
 }>()
 
+function BackHome(){
+    router.push('/')
+}
+
 const activeTeam = ref(props.teams[0])
 </script>
 
@@ -26,6 +33,7 @@ const activeTeam = ref(props.teams[0])
   <SidebarMenu>
     <SidebarMenuItem>
       <SidebarMenuButton
+            @click="BackHome"
             size="lg"
             class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
           >

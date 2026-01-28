@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils' // shadcn 默认提供的类合并工具
+import { cn } from '@/lib/utils'
 
 // 1. 定义接口类型
 interface TabItem {
@@ -16,7 +15,7 @@ const router = useRouter()
 const tabs: TabItem[] = [
   { label: '登录', path: '/login/signin' },
   { label: '注册', path: '/login/signup' },
-  { label: '找回密码', path: '/login/forgot' },
+  { label: '重置密码', path: '/login/forgot' },
 ]
 
 // 3. 为函数参数添加 string 类型
@@ -29,13 +28,13 @@ const go = (path: string): void => {
 
 <template>
   <div class="min-h-[calc(100vh-104px)] flex items-center justify-center p-2">
-    <div class="w-full max-w-md space-y-6">
+    <div class="w-full space-y-6">
       <!-- 顶部 Logo 或 标题区域 -->
       <div class="text-center space-y-2">
         <h1 class="text-3xl font-bold tracking-tight">PulseChat</h1>
         <p class="text-sm text-muted-foreground">欢迎使用 AI 智能助理</p>
       </div>
-        <div class="px-12">
+        <div class="w-[300px] m-auto">
             <div class="flex p-1 mb-6 bg-muted rounded-lg">
                 <button
                 v-for="tab in tabs"
@@ -53,26 +52,12 @@ const go = (path: string): void => {
             </div>
         </div>
 
-
-        <router-view v-slot="{ Component }">
-            <transition name="fade" mode="out-in">
-              <component :is="Component" />
-            </transition>
-        </router-view>
+        <router-view />
         
     </div>
   </div>
 </template>
 
 <style scoped>
-/* 定义切换时的淡入淡出动画 */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>

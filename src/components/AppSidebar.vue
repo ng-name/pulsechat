@@ -183,8 +183,7 @@ const se = false;
             <SidebarMenu>
             <SidebarMenuItem>
                 <SidebarMenuButton as-child>
-                <!-- 将 a 标签换成 RouterLink，href 换成 to -->
-                <RouterLink to="/login">
+                <RouterLink to="/login/signin">
                     <LogIn class="mr-2 size-4" />
                     <span>立即登录</span>
                 </RouterLink>
