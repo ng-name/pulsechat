@@ -12,13 +12,18 @@ import {
   PieChart,
   Settings2,
   SquareTerminal,
+  LogIn
 } from "lucide-vue-next"
 import NavMain from "@/components/NavMain.vue"
 import NavUser from "@/components/NavUser.vue"
 import TeamSwitcher from "@/components/TeamSwitcher.vue"
 
+
 import {
   Sidebar,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
@@ -157,6 +162,9 @@ const data = {
     },
   ],
 }
+
+const se = false;
+
 </script>
 
 <template>
@@ -170,7 +178,20 @@ const data = {
             <!-- <NavProjects :projects="data.projects" /> -->
         </SidebarContent>
         <SidebarFooter>
-            <NavUser :user="data.user" />
+            <NavUser v-if="se" :user="data.user" />
+             <div v-else class="p-0 w-full">
+            <SidebarMenu>
+            <SidebarMenuItem>
+                <SidebarMenuButton as-child>
+                <!-- 将 a 标签换成 RouterLink，href 换成 to -->
+                <RouterLink to="/login">
+                    <LogIn class="mr-2 size-4" />
+                    <span>立即登录</span>
+                </RouterLink>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            </SidebarMenu>
+        </div>
         </SidebarFooter>
         <SidebarRail />
     </Sidebar>

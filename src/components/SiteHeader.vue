@@ -42,7 +42,7 @@ const navigate = (path: string) => {
 </script>
 
 <template>
-  <header class="flex sticky top-0 z-50 w-full justify-between items-center h-16 shrink-0 pr-1">
+  <header class="flex sticky top-0 z-50 w-full justify-between bg-background/80 backdrop-blur-md items-center h-16 shrink-0 pr-1">
     <div class="flex items-center gap-2 px-4">
       <SidebarTrigger class="-ml-1" />
       <Separator

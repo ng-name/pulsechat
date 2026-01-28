@@ -47,19 +47,19 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Docs',
     component: () => import('@/views/Docs.vue'),
     meta: { title: '文档' },
-    redirect: '/login/signin',
+    redirect: '/docs/useragreement',
     children: [
         {
             path: 'useragreement',
             name: 'UseragReement',
             component: () => import('@/views/docs/UseragReement.vue'),
-            meta: { title: '登录' }
+            meta: { title: '用户协议' }
         },
         {
             path: 'privacypolicy',
             name: 'PrivacyPolicy',
             component: () => import('@/views/docs/PrivacyPolicy.vue'),
-            meta: { title: '注册' }
+            meta: { title: '隐私条款' }
         },
     ]
   },

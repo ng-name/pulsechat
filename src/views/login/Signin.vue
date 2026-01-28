@@ -60,9 +60,9 @@ const router = useRouter()
                 >
                 已阅读并同意
                 </Label>
-                <a @click="router.push('/docs/useragreement')" class="text-primary hover:underline decoration-primary/50">《用户协议》</a>
+                <RouterLink to="/docs/useragreement" class="text-primary hover:underline decoration-primary/50">《用户协议》</RouterLink>
                 <span class="text-muted-foreground">与</span>
-                <a @click="router.push('/docs/privacypolicy')" class="text-primary hover:underline decoration-primary/50">《隐私条款》</a>
+                <RouterLink to="/docs/privacypolicy" class="text-primary hover:underline decoration-primary/50">《隐私条款》</RouterLink>
             </div>
         </div>
       </form>

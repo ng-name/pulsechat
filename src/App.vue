@@ -18,8 +18,13 @@ const isDark = useDark()
       <SiteHeader />
 
       <!-- 主内容区：使用 flex-1 撑开空间，确保 footer 压到底部 -->
-      <main class="flex-1">
-        <router-view />
+      <main class="flex-1 overflow-x-hidden"> <!-- 防止动画时出现横向滚动条 -->
+        <router-view v-slot="{ Component }">
+          <!-- mode="out-in" 确保旧组件先消失，新组件再进入 -->
+          <transition name="page-fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </main>
       
       <!-- 使用抽离后的 Footer -->
@@ -27,3 +32,21 @@ const isDark = useDark()
     </SidebarInset>
   </SidebarProvider>
 </template>
+
+
+<style scoped>
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.page-fade-enter-from {
+  opacity: 0;
+  transform: translateY(10px); /* 从下方 10px 处浮现 */
+}
+
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px); /* 向上方消失 */
+}
+</style>
