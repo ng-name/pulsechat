@@ -2,17 +2,13 @@
 import type { SidebarProps } from "@/components/ui/sidebar"
 
 import {
-  AudioWaveform,
   BookOpen,
   Bot,
-  Command,
-  Frame,
+  LogIn,
   GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-  LogIn
+  MessageSquare, // 新增：用于聊天
+  FileText,      // 新增：用于文档
+  MoreHorizontal // 新增：用于其他
 } from "lucide-vue-next"
 import NavMain from "@/components/NavMain.vue"
 import NavUser from "@/components/NavUser.vue"
@@ -33,12 +29,14 @@ import {
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: "icon",
 })
+
+
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "User",
+    email: "user@example.com",
+    avatar: "/avatars/user.jpg",
   },
   teams: [
     {
@@ -46,121 +44,80 @@ const data = {
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "应用",
       url: "#",
-      icon: SquareTerminal,
+      icon: MessageSquare,
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
+          title: "聊天 / Chat",
+          url: "/chat",
         },
       ],
     },
     {
-      title: "Models",
+      title: "模型",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "入门介绍",
+          url: "/models/intro",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "接入API",
+          url: "/models/api",
         },
         {
-          title: "Quantum",
-          url: "#",
+          title: "限制QS",
+          url: "/models/limits",
+        },
+        {
+          title: "价格表",
+          url: "/models/pricing",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "文档",
       url: "#",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "用户协议",
+          url: "/docs/useragreement",
         },
         {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          title: "隐私条款",
+          url: "/docs/privacypolicy",
         },
       ],
     },
     {
-      title: "Settings",
+      title: "其他",
       url: "#",
-      icon: Settings2,
+      icon: MoreHorizontal,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "关于我们",
+          url: "/other/about",
         },
         {
-          title: "Team",
-          url: "#",
+          title: "反馈意见",
+          url: "/other/feedback",
         },
         {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+          title: "常见问题",
+          url: "/other/faqs",
         },
       ],
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+  // 如果你的侧边栏底部还有 projects 区域，可以清空或保留
+  projects: [], 
 }
 
 const se = false;

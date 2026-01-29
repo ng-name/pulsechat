@@ -17,7 +17,7 @@ const isDark = useDark()
       <SiteHeader />
 
       <main class="flex-1 overflow-x-hidden">
-        <router-view />
+        <RouterView/>
       </main>
       
       <SiteFooter />

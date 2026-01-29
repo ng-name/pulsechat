@@ -47,6 +47,9 @@ importers:
       vue3-lottie:
         specifier: ^3.3.1
         version: 3.3.1(vue@3.5.27(typescript@5.9.3))
+      watermark-js-plus:
+        specifier: ^1.6.3
+        version: 1.6.3
     devDependencies:
       '@tailwindcss/typography':
         specifier: ^0.5.19
@@ -1102,6 +1105,9 @@ packages:
       typescript:
         optional: true
 
+  watermark-js-plus@1.6.3:
+    resolution: {integrity: sha512-iCLOGf70KacIwjGF9MDViYxQcRiVwOH7l42qDHLeE2HeUsQD1EQuUC9cKRG/4SErTUmdqV3yf5WnKk2dRARHPQ==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -2011,3 +2017,5 @@ snapshots:
       '@vue/shared': 3.5.27
     optionalDependencies:
       typescript: 5.9.3
+
+  watermark-js-plus@1.6.3: {}

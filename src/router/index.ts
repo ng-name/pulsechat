@@ -63,6 +63,41 @@ const routes: Array<RouteRecordRaw> = [
         },
     ]
   },
+  {
+    path: '/chat',
+    name: 'Chat',
+    component: () => import('@/views/Chat.vue'),
+    meta: { title: '聊天' },
+  },
+  {
+    path: '/other',
+    name: 'Other',
+    component: () => import('@/views/Other.vue'),
+    meta: { title: '其他' },
+    redirect: '/other/about',
+    children: [
+        {
+            path: 'about',
+            name: 'About',
+            component: () => import('@/views/other/About.vue'),
+            meta: { title: '关于我们' }
+        },
+        {
+            path: 'feedback',
+            name: 'Feedback',
+            component: () => import('@/views/other/Feedback.vue'),
+            meta: { title: '反馈意见' }
+        },
+        {
+            path: 'faqs',
+            name: 'FAQs',
+            component: () => import('@/views/other/FAQs.vue'),
+            meta: { title: '反馈意见' }
+        },
+
+        
+    ]
+  },
 ]
 
 
