@@ -25,16 +25,16 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="min-h-screen pt-20 pb-12">
-    <div class="mx-auto max-w-3xl rounded-xl bg-white p-6 shadow">
+  <div class="min-h-[calc(100vh-104px)] pt-20 pb-12">
+    <div class="mx-auto max-w-3xl rounded-xl bg-white dark:bg-zinc-900  p-6 shadow">
       <!-- 
         注意：你使用了 prose 类名，
         请确保项目中安装了 @tailwindcss/typography 插件
       -->
       <div
         class="
-            prose
-            prose-neutral
+             bg-white dark:bg-zinc-900 
+            prose prose-neutral dark:prose-invert
             max-w-none
             leading-relaxed
             prose-h1:text-2xl prose-h1:font-bold prose-h1:mt-6

@@ -61,7 +61,7 @@ const handleSend = async () => {
 <template>
     <div class="fixed h-0 bottom-10 left-[255px] right-0">
 
-        <div class="w-[600px] flex items-end gap-3 absolute bottom-2 left-[50%] ml-[-300px] rounded-2xl">
+        <div class="w-[700px] flex items-end gap-3 absolute bottom-2 left-[50%] ml-[-350px] rounded-2xl">
              <Textarea 
                 name="txtint"
                 ref="textareaRef"
@@ -78,13 +78,13 @@ const handleSend = async () => {
             <Button 
             variant="outline" 
             size="icon" 
-            class="flex-shrink-0 bg-background/80 backdrop-blur-md"
+            class="flex-shrink-0 w-[46px] py-5 bg-background/80 backdrop-blur-md"
             :disabled="isLoading || !message.trim()"
             @click="handleSend"
             >
             <!-- 发送中显示转圈圈 -->
-                <Loader2 v-if="isLoading" class="h-4 w-4 animate-spin" />
-                <ArrowUpIcon v-else class="h-4 w-4" />
+                <Loader2 v-if="isLoading" class="h-6 w-6 animate-spin" />
+                <ArrowUpIcon v-else class="h-6 w-6" />
             </Button>
         </div>
 

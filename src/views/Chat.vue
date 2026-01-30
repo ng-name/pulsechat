@@ -34,9 +34,9 @@ const initWatermark = () => {
     fontColor: isDark ? '#ffffff' : '#000000', 
     globalAlpha: isDark ? 0.06 : 0.06, // 暗色模式下透明度可以再调低一点
     rotate: -22,
-    parent: chatAreaRef.value,
+    // parent: chatAreaRef.value,
     // monitor: true,
-    zIndex: 10,
+    zIndex: 1,
   })
 
   wm.create()

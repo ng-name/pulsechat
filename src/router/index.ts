@@ -94,8 +94,39 @@ const routes: Array<RouteRecordRaw> = [
             component: () => import('@/views/other/FAQs.vue'),
             meta: { title: '反馈意见' }
         },
-
-        
+    ]
+  },
+  {
+    path: '/model',
+    name: 'Model',
+    component: () => import('@/views/Model.vue'),
+    meta: { title: '模型' },
+    redirect: '/model/gettingstarted',
+    children: [
+        {
+            path: 'gettingstarted',
+            name: 'GettingStarted',
+            component: () => import('@/views/model/GettingStarted.vue'),
+            meta: { title: '入门介绍' }
+        },
+        {
+            path: 'accessingapi',
+            name: 'AccessingAPI',
+            component: () => import('@/views/model/AccessingAPI.vue'),
+            meta: { title: '接入API' }
+        },
+        {
+            path: 'qslimitations',
+            name: 'QSLimitations',
+            component: () => import('@/views/model/QSLimitations.vue'),
+            meta: { title: '限制QS' }
+        },
+        {
+            path: 'pricingreference',
+            name: 'PricingReference',
+            component: () => import('@/views/model/PricingReference.vue'),
+            meta: { title: '价格参考' }
+        },
     ]
   },
 ]

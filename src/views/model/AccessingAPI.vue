@@ -14,7 +14,7 @@ const md: MarkdownIt = new MarkdownIt({
 
 onMounted(async () => {
   try {
-    const res = await fetch('/content/legal/privacy.md')
+    const res = await fetch('/content/legal/accessingapi.md')
     if (!res.ok) throw new Error('Failed to fetch markdown')
     const text = await res.text()
     html.value = md.render(text)

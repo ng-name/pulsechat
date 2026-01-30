@@ -65,19 +65,19 @@ const data = {
       items: [
         {
           title: "入门介绍",
-          url: "/models/intro",
+          url: "/model/gettingstarted",
         },
         {
           title: "接入API",
-          url: "/models/api",
+          url: "/model/accessingapi",
         },
         {
           title: "限制QS",
-          url: "/models/limits",
+          url: "/model/qslimitations",
         },
         {
-          title: "价格表",
-          url: "/models/pricing",
+          title: "价格参考",
+          url: "/model/pricingreference",
         },
       ],
     },
